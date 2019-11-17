@@ -26,6 +26,7 @@ class App extends React.Component {
               ...user.data()
             }
           })
+          console.log(this.state)
         });
       }
      this.setState({currentUser:userAuth})

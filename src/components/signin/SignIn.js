@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import InputForm from '../inputitem/InputForm';
-import { signInwithGoogle } from '../../firebase/firebase';
+import { signInwithGoogle, auth } from '../../firebase/firebase';
 import CusstomButton from '../button/CusstomButton';
 
 class SignIn extends Component {
@@ -14,12 +14,18 @@ class SignIn extends Component {
         this.setState({[name]:value})
     }
 
-    sunmitHandler = e => {
+    sunmitHandler = async e => {
         e.preventDefault();
-        this.setState({
-            email:'',
-            password:''
-        })
+        const {email, password} = this.state;
+        try {
+            await auth.signInWithEmailAndPassword(email, password)
+            this.setState({
+                email:'',
+                password:''
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
     render() {
         const {email, password} = this.state;

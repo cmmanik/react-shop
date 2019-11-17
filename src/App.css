@@ -22,10 +22,15 @@
 }
 .sign-in {
   width: 40vw;
+  float: left;
 }
 * {
   box-sizing: border-box;
 }
 .signout {
   cursor: pointer;
+}
+.sign-up {
+  width: 40vw;
+  float: right;
 }
