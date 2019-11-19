@@ -3,6 +3,7 @@ import './cart.scss'
 import CusstomButton from '../button/CusstomButton';
 import CartItem from './CartItem';
 import { connect} from 'react-redux'
+import { selectCartItems } from '../../redux/selector/cartSelector';
 const Cart = ({carrItemList}) => {
     return (
         <div className="cart-dropdown">
@@ -14,6 +15,6 @@ const Cart = ({carrItemList}) => {
     );
 };
 const mapDishpatchToProps = state => ({
-    carrItemList : state.cart.cartItems
+    carrItemList : selectCartItems(state)
 })
 export default connect(mapDishpatchToProps) (Cart);
