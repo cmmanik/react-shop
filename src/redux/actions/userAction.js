@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, TOGGLE_CART, ADD_CART_ITEM } from "../actionType"
+import { SET_CURRENT_USER, TOGGLE_CART, ADD_CART_ITEM, CLEAR_CART_ITEM, ITEM_REMOVE } from "../actionType"
 // set current user
 export const setCurrentUser = user => ({
     type:SET_CURRENT_USER,
@@ -14,3 +14,13 @@ export const addCardItem = item => ({
     type:ADD_CART_ITEM,
     payload:item
 })
+// REMOVE SIGNLE QUANTITY
+export const removeSingle = item => ({
+    type:ITEM_REMOVE,
+    payload:item
+})
+// REMOVE CART ITEM 
+export const removeCartItem = (item) => ({
+    type:CLEAR_CART_ITEM,
+    payload:item
+});

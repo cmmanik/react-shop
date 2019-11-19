@@ -11,6 +11,10 @@
   right: 40px;
   z-index: 5;
 
+  .empty-cart {
+    text-align: center;
+    margin: 50px 0;
+  }
   .cart-items {
     height: 240px;
     display: flex;

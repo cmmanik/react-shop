@@ -1,5 +1,5 @@
-import { TOGGLE_CART, ADD_CART_ITEM } from "../actionType";
-import { addCardItem } from "../../components/utils/addcardItem";
+import { TOGGLE_CART, ADD_CART_ITEM, CLEAR_CART_ITEM, ITEM_REMOVE } from "../actionType";
+import { addCardItem, removeCardItem } from "../../components/utils/addcardItem";
 
 const initState = {
     hidden:true,
@@ -17,7 +17,17 @@ const cartReducers = (state=initState, action) => {
             return {
                 ...state,
                 cartItems:addCardItem(state.cartItems, action.payload)
-            }    
+            }
+        case CLEAR_CART_ITEM:
+            return {
+                ...state,
+                cartItems:state.cartItems.filter(item => item.id.toString() !== action.payload.id.toString())
+            }
+        case ITEM_REMOVE:
+            return {
+                ...state,
+                cartItems:removeCardItem(state.cartItems, action.payload)
+            }  
         default:
             return state;
     }
