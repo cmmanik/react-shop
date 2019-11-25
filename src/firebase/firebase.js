@@ -45,4 +45,24 @@ export const createUserProfile = async (userAuth, aditioanalData) => {
     return userRef;
 }
 
+
+export const convertCollectionsToMap = (collections) => {
+    
+   const transFormedCollections = collections.docs.map(doc => {
+        const {title, items} = doc.data();
+        return {
+            routeName:encodeURI(title.toLowerCase()),
+            id:doc.id,
+            title,
+            items
+        }
+    });
+
+    return transFormedCollections.reduce((accumulator, collection) => {
+        accumulator[collection.title.toLowerCase()] = collection;
+        return accumulator;
+    }, {})
+
+}
+
 export default firebase;

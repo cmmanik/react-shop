@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, TOGGLE_CART, ADD_CART_ITEM, CLEAR_CART_ITEM, ITEM_REMOVE } from "../actionType"
+import { SET_CURRENT_USER, TOGGLE_CART, ADD_CART_ITEM, CLEAR_CART_ITEM, ITEM_REMOVE, ADD_COLLECTION } from "../actionType"
 // set current user
 export const setCurrentUser = user => ({
     type:SET_CURRENT_USER,
@@ -24,3 +24,10 @@ export const removeCartItem = (item) => ({
     type:CLEAR_CART_ITEM,
     payload:item
 });
+
+
+// fetch shop collection form firebase 
+export const setCollection = collections => ({
+    type:ADD_COLLECTION,
+    payload:collections
+})

@@ -3,3 +3,4 @@ export const TOGGLE_CART = 'TOGGLE_CART';
 export const ADD_CART_ITEM = 'ADD_CART_ITEM';
 export const CLEAR_CART_ITEM = 'CLEAR_CART_ITEM';
 export const ITEM_REMOVE = 'ITEM_REMOVE';
+export const ADD_COLLECTION = 'ADD_COLLECTION';
