@@ -27,11 +27,13 @@ class ShopPage extends React.Component{
 
   render() {
     const {loading} = this.state;
+    const {match} = this.props;
+    console.log(match)
     return (
       <div className="shop-page">
         {/* <Route exact path='/shop' component={CollectionOverView} /> */}
-        <Route exact path='/shop' render={(props) => <CollectionOverViewSpnier isLoading={loading} {...props}  />  } />
-        <Route path="/shop/:collection" render={(props) => <CollectionSpiner isLoading={loading} {...props} /> } /> 
+        <Route exact path={`${match.path}`} render={(props) => <CollectionOverViewSpnier isLoading={loading} {...props}  />  } />
+        <Route path={`${match.path}/:collection`} render={(props) => <CollectionSpiner isLoading={loading} {...props} /> } /> 
         {/* <CollectionOverView /> */}
       </div>
     );
